@@ -1,4 +1,4 @@
-show create  table wIndex;
+
 CREATE TABLE bvt.wiki
 (
     `id` UInt32,
@@ -10,6 +10,19 @@ CREATE TABLE bvt.wiki
 ENGINE = MergeTree
 ORDER BY id
 SETTINGS index_granularity = 8192;
+
+CREATE TABLE bvt.wiki2
+(
+    `id` UInt32,
+    `title` String,
+    `url` String,
+    `tokens` Array(String)
+)
+ENGINE = MergeTree
+ORDER BY id
+SETTINGS index_granularity = 256;
+
+create table bvt.tmp1 ( row String ) engine = Null;
 
 CREATE TABLE bvt.wIndex
 (
