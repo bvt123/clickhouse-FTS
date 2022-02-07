@@ -1,0 +1,1 @@
+for i in `ls x??`; do  echo $i ; cat $i | clickhouse-client -d bvt -u bvt --password xxx -q "insert into onerow format LineAsString" --receive_timeout=1200 --max_memory_usage='60G' ; done
