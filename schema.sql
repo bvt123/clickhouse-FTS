@@ -39,6 +39,15 @@ create table wiki_text
     ) engine = MergeTree order by (token,id)
 settings index_granularity=256,
          storage_policy = 'fast';
+create table wiki_text1
+    (
+        token String,
+        id    UInt32,
+        freq  UInt16,
+        ntk   UInt16,
+        sign  Int8
+    ) engine =Join(ALL, INNER , token) ;
+
 drop table wiki_comment;
 create table wiki_comment
     (

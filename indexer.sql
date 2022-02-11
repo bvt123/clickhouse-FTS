@@ -64,3 +64,10 @@ select token, sign*uniqExact(id) c
 from wiki_pages array join mapKeys(comment_bow) as token
 group by token,sign
 ;
+
+
+/*
+ а давайте биграммами? Раздуем индекс, но чего нам стесняться - у нас же КХ
+ записывать в индекс позицию токена в тексте
+*/
+
